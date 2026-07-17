@@ -13,9 +13,18 @@ CORS(app)
 
 print("Loading model...")
 
-model = pipeline(
-    "text-generation",
-    model="aarchoksi/calendar-ai-model"
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+
+tokenizer = AutoTokenizer.from_pretrained(
+    "aarchoksi/calendar-ai-model"
+)
+
+model = AutoModelForCausalLM.from_pretrained(
+    "aarchoksi/calendar-ai-model",
+    torch_dtype=torch.float16,
+    low_cpu_mem_usage=True
 )
 
 print("Model loaded!")

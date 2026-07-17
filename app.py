@@ -15,7 +15,7 @@ print("Loading model...")
 
 model = pipeline(
     "text-generation",
-    model="aarchoksi/calendar_model"
+    model="aarchoksi/calendar-ai-model"
 )
 
 print("Model loaded!")
